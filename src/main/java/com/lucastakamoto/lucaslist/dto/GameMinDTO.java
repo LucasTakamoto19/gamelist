@@ -1,6 +1,7 @@
 package com.lucastakamoto.lucaslist.dto;
 
 import com.lucastakamoto.lucaslist.entities.Game;
+import com.lucastakamoto.lucaslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 	private Long id;
@@ -21,6 +22,15 @@ public class GameMinDTO {
 		shortDescription = entity.getShortDescription();
 	}
 
+	
+	public GameMinDTO(GameMinProjection projection) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
+	
 	public Long getId() {
 		return id;
 	}
